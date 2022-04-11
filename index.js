@@ -111,7 +111,7 @@ function processPaste (elem, pastedData) {
   setTimeout(function(){
     document.querySelector(".snackbar").classList.add("hide");
   },2000);  
-    copyTextToClipboard(pastedData);
+    copyTextToClipboard(parsedText);
     elem.focus();
 }
 
