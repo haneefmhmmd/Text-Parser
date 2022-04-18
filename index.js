@@ -99,7 +99,7 @@ function processPaste (elem, pastedData) {
       child.textContent = child.textContent.replace(/\u00a0/g, " ");
       parsedText += `<span class='dot'>child.textContent</span>`;
     }
-    if (child.tagName === "SPAN") {
+    else if (child.tagName === "SPAN") {
       child.textContent = child.textContent.replace(/\u00a0/g, " ");
       parsedText += child.textContent;
     }
