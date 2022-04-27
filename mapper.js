@@ -125,21 +125,30 @@ function fileUploadHandler() {
       console.log("Meta Content", metaContentParser(fileContent));
       console.log("Hero Content", heroContentParser(fileContent));
       console.log("Faq Content", faqContentParser(fileContent));
-      metaContentContainer.textContent = metaContentParser(fileContent);
-      heroContentContainer.textContent = heroContentParser(fileContent);
-      faqContentContainer.textContent = faqContentParser(fileContent);
+      window.metaContent = metaContentParser(fileContent);
+      window.heroContent = heroContentParser(fileContent);
+      window.faqContent = faqContentParser(fileContent);
+      metaContentContainer.textContent = metaContent;
+      heroContentContainer.textContent = heroContent;
+      faqContentContainer.textContent = faqContent;
     };
     reader.readAsText(file);
   }
 }
 
-function clickHandler(e){
+function clickHandler(e) {
   e.preventDefault();
-  copyTextToClipboard(e.target.innerHTML);
+  if (e.target.id === "meta-content-container") {
+    copyTextToClipboard(metaContent);
+  } else if (e.target.id === "hero-content-container") {
+    copyTextToClipboard(heroContent);
+  } else if (e.target.id === "faq-content-container") {
+    copyTextToClipboard(faqContent);
+  }
   document.querySelector(".snackbar").classList.remove("hide");
-  setTimeout(function(){
+  setTimeout(function () {
     document.querySelector(".snackbar").classList.add("hide");
-  },2000);  
+  }, 2000);
 }
 
 const uploadFileInput = document.getElementById("upload-input");
