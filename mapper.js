@@ -32,8 +32,8 @@ const heroContentParser = (originalFileContent) => {
     .toString()
     .replace(/\.png/, "");
   const heroContent = {
-    title: originalFileContent.title,
-    desc: originalFileContent.description,
+    title: originalFileContent.hero_header,
+    desc: [originalFileContent.hero_para],
     image: {
       src: imageSrcFormatter,
       dimensions: [760, 520],
@@ -45,6 +45,11 @@ const heroContentParser = (originalFileContent) => {
       link: originalFileContent.hero_cta_link,
     },
   };
+
+  if(originalFileContent.hasOwnProperty("hero_para_two")){
+    heroContent.desc.push(originalFileContent.hero_para_two);
+  }
+
   return JSON.stringify(heroContent);
 };
 
