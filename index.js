@@ -94,15 +94,19 @@ function processPaste (elem, pastedData) {
   ];
     let parsedText = "";
   domChildrenArr.forEach((child) => {
-    if (child.tagName === "SPAN") {
-      console.log(child.textContent);
+    console.log(child);
+    if (child.tagName === "SPAN" && child.className === "dot") {
+      child.textContent = child.textContent.replace(/\u00a0/g, " ");
+      parsedText += `<span class='dot'>child.textContent</span>`;
+    }
+    else if (child.tagName === "SPAN") {
       child.textContent = child.textContent.replace(/\u00a0/g, " ");
       parsedText += child.textContent;
     }
-    if (child.tagName === "A") {
+    else if (child.tagName === "A") {
       parsedText += `<a href='${child.href}' class='text-brandcolor'>${child.innerText}</a>`;
     }
-    if (child.tagName === "B" || child.tagName === "STRONG") {
+    else if (child.tagName === "B" || child.tagName === "STRONG") {
       parsedText += `<b>${child.innerText}</b>`;
     }
   });
