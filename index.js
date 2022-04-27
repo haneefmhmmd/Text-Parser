@@ -95,8 +95,9 @@ function processPaste (elem, pastedData) {
     let parsedText = "";
   domChildrenArr.forEach((child) => {
     if (child.tagName === "SPAN") {
-      console.log(child);
-      parsedText += child.innerText;
+      console.log(child.textContent);
+      child.textContent = child.textContent.replace(/\u00a0/g, " ");
+      parsedText += child.textContent;
     }
     if (child.tagName === "A") {
       parsedText += `<a href='${child.href}' class='text-brandcolor'>${child.innerText}</a>`;

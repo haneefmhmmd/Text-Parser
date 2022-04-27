@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="snackbar hide">Parsed text copied to clipboard &#128526;</div>
+    <header id="header">
+        <h1 class="title">Json Mapper</h1>
+    </header>
+    <main>
+        <input type="file" id="upload-input" class="input-container" >
+        <section>
+            <h2 class="sub-title">Meta Content</h2>
+            <article class="content-wrap formatted-text-container pointer" id="meta-content-container"></article>
+        </section>
+        <section>
+            <h2 class="sub-title">Hero Content</h2>
+            <article class="content-wrap formatted-text-container pointer" id="hero-content-container"></article>
+        </section>
+        <section>
+            <h2 class="sub-title">Faq Content</h2>
+            <article class="content-wrap formatted-text-container pointer" id="faq-content-container"></article>
+        </section>
+    </main>
+    <script src="./mapper.js"></script>
+</body>
+</html>
