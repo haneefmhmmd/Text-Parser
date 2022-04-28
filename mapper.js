@@ -72,7 +72,7 @@ const heroContentParser = (originalFileContent) => {
     },
     cta: {
       text: originalFileContent.hero_cta,
-      link: originalFileContent.hero_cta_link,
+      href: originalFileContent.hero_cta_link,
     },
   };
 
